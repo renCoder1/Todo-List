@@ -1,0 +1,53 @@
+
+
+module.exports.setDateAndDay = function(){
+var todaysDate = new Date();
+  var options = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long'
+  };
+   dateFormat = todaysDate.toLocaleString("en-ca",options);
+
+   var day = todaysDate.getDay();
+   var dayInString = "";
+   switch (day) {
+     case 0:
+       dayInString = "Sunday";
+       weekendOrWeekday = "weekend";
+       break;
+     case 1:
+       dayInString = "Monday";
+        weekendOrWeekday = "weekday";
+       break;
+     case 2:
+       dayInString = "Tuesday";
+       weekendOrWeekday = "weekday"
+       break;
+     case 3:
+       dayInString = "Wednesday";
+       weekendOrWeekday = "weekday"
+       break;
+     case 4:
+       dayInString = "Thursday";
+       weekendOrWeekday = "weekday"
+       break;
+     case 5:
+       dayInString = "Friday";
+       weekendOrWeekday = "weekday"
+       break;
+     case 6:
+       dayInString = "Saturday";
+       weekendOrWeekday = "weekend";
+       break;
+     default:
+     console.log("Error :: glitch in switch! The value of day is :: "+day );
+}
+
+   return [dateFormat, dayInString, weekendOrWeekday];
+
+}
+
+module.exports.setMessage = function(){
+return "Testing another module";
+}

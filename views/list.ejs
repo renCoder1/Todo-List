@@ -1,0 +1,35 @@
+<%- include('header')-%>
+<div class="box" id="heading">
+  <%# if(dayOfTheWeek === "Tuesday"){ %>
+  <h1 style="color:red">It's <%= dayOfTheWeek %>!</h1>
+  <h1>Enjoy the <%= wkendOrWkday %>!</h1>
+  <h1><%= dateFormateTitle%></h1>
+  <%# } %>
+</div>
+
+<div class="box">
+  <form action="/delete" method="post">
+    <% totalItemInList.forEach(function(item){ %>
+    <div class="item">
+      <input type="checkbox" name="checkbox" value=<%= item._id %> onChange="this.form.submit()">
+      <p><%= item.name %></p>
+    </div>
+    <%  }); %>
+        <input type="hidden" name="titleName" value="<%= dateFormateTitle %>"></input>
+  </form>
+
+  <form action="/" method="post">
+    <input type="text" name="inputItem" placeholder="New Task" autocomplete="off" required autofocus>
+    <button type="submit" name="submit" value=<%= dateFormateTitle %>>+</button>
+  </form>
+</div>
+<%- include('footer')-%>
+<!-- <ul>
+
+    <li>Cook</li>
+    <li>Wash</li>
+    <li>Dance</li>
+      <% for(var i = 0 ; i <  totalItemInList.length; i++){ %>
+     <li><%= totalItemInList[i] %></li>
+    <% } %>
+  </ul> -->
